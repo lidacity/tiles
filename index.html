@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>Lida - Leaflet</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" type="image/png" href="favicon.png" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
+ <style type="text/css">
+  body { height: 100%; width: 100%; padding: 0; margin: 0; }
+  .mapContainer { width: 100%; height: 100%; position: absolute; }
+ </style>
+</head>
+
+<body>
+ <div id="map" class="mapContainer">
+  <script>
+   var Map = L.map('map', { center: [53.90, 25.30], zoom: 13, fadeAnimation: false });
+   var Bounds = [[53.85, 25.2], [53.96, 25.4]];
+   Map.setMaxBounds(Bounds);
+   Map.on('drag', function() { Map.panInsideBounds(Bounds, { animate: false }) });
+   L.tileLayer('ru/{z}/{x}/{y}.png', { attribution: ' © <a href="http://openstreetmap.org/copyright">Openstreetmap</a>', maxZoom: 18, minZoom: 11, noWrap: true }).addTo(Map);
+  </script>
+ </div>
+</body>
+
+</html>
